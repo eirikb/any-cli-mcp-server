@@ -1,6 +1,8 @@
 # any-cli-mcp-server
 
-Turn any CLI tool into an MCP server for Claude.
+Turn any CLI tool into an MCP server.
+
+Uses the `--help` to build MCP tools.
 
 ## Quick Start
 
@@ -15,24 +17,34 @@ npx any-cli-mcp-server az
 npx any-cli-mcp-server git
 ```
 
-## Claude Desktop Setup
-
-Add to your `claude_desktop_config.json`:
+## Setup
 
 ```json
 {
   "mcpServers": {
     "github-cli": {
       "command": "npx",
-      "args": ["any-cli-mcp-server", "gh"]
+      "args": [
+        "-y",
+        "any-cli-mcp-server",
+        "gh"
+      ]
     },
     "azure-cli": {
       "command": "npx",
-      "args": ["any-cli-mcp-server", "az"]
+      "args": [
+        "-y",
+        "any-cli-mcp-server",
+        "az"
+      ]
     },
     "git-from-cache": {
       "command": "npx",
-      "args": ["any-cli-mcp-server", "git_cache.json"]
+      "args": [
+        "-y",
+        "any-cli-mcp-server",
+        "git_cache.json"
+      ]
     }
   }
 }
