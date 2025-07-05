@@ -24,27 +24,15 @@ npx any-cli-mcp-server git
   "mcpServers": {
     "github-cli": {
       "command": "npx",
-      "args": [
-        "-y",
-        "any-cli-mcp-server",
-        "gh"
-      ]
+      "args": ["-y", "any-cli-mcp-server", "gh"]
     },
     "azure-cli": {
       "command": "npx",
-      "args": [
-        "-y",
-        "any-cli-mcp-server",
-        "az"
-      ]
+      "args": ["-y", "any-cli-mcp-server", "az"]
     },
     "git-from-cache": {
       "command": "npx",
-      "args": [
-        "-y",
-        "any-cli-mcp-server",
-        "git_cache.json"
-      ]
+      "args": ["-y", "any-cli-mcp-server", "git_cache.json"]
     }
   }
 }
