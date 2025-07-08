@@ -33,7 +33,7 @@ export function parseArgs(args: string[]): ParsedArgs {
     for (let i = 0; i < remainingArgs.length; i++) {
       if (remainingArgs[i] === '--cache-file') {
         cacheFile = remainingArgs[i + 1] || null;
-        i++; 
+        i++;
       } else {
         filteredArgs.push(remainingArgs[i]);
       }
