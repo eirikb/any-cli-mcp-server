@@ -18,8 +18,31 @@ export function parseArgs(args: string[]): ParsedArgs {
     return { command: args[0], cacheBuild: false, cacheFile };
   }
 
-  const command = cacheBuildIndex !== -1 ? args[cacheBuildIndex + 1] : undefined;
-  const cacheFile = cacheFileIndex !== -1 ? args[cacheFileIndex + 1] : null;
+  if (cacheBuildIndex === -1) {
+    const cacheFile = cacheFileIndex !== -1 ? args[cacheFileIndex + 1] : null;
+    return { cacheBuild: false, cacheFile };
+  }
+
+  let command: string | undefined;
+  let cacheFile: string | null = null;
+
+  if (cacheBuildIndex !== -1) {
+    const remainingArgs = args.slice(cacheBuildIndex + 1);
+    const filteredArgs: string[] = [];
+
+    for (let i = 0; i < remainingArgs.length; i++) {
+      if (remainingArgs[i] === '--cache-file') {
+        cacheFile = remainingArgs[i + 1] || null;
+        i++; 
+      } else {
+        filteredArgs.push(remainingArgs[i]);
+      }
+    }
+
+    command = filteredArgs.join(' ') || undefined;
+  } else {
+    cacheFile = cacheFileIndex !== -1 ? args[cacheFileIndex + 1] : null;
+  }
   const cacheBuild = cacheBuildIndex !== -1;
 
   return {
