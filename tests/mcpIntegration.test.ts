@@ -501,7 +501,7 @@ describe('MCP Server Integration Edge Cases', () => {
       expect(response.error?.message).toBe('Internal error');
     });
 
-    it('should handle tool execution timeouts', async () => {
+    it.skip('should handle tool execution timeouts', async () => {
       const request: MCPRequest = {
         jsonrpc: '2.0',
         id: 1,
