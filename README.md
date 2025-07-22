@@ -4,6 +4,8 @@ Turn any CLI tool into an MCP server.
 
 Uses the `--help` to build MCP tools.
 
+Works with any CLI tool that has `--help` output.
+
 ## Quick Start
 
 ```bash
@@ -38,7 +40,7 @@ npx any-cli-mcp-server git
 }
 ```
 
-## Faster Startup (Optional)
+## Faster Startup (Optional, but very recommended)
 
 Build a cache first for better performance:
 
@@ -49,5 +51,3 @@ npx any-cli-mcp-server --cache-build gh
 # Use cache
 npx any-cli-mcp-server gh_cache.json
 ```
-
-Works with any CLI tool that has `--help` output.
