@@ -7,6 +7,7 @@ import { executeCommand } from '../utils/commandExecutor.js';
 import { formatCommandResponse, formatErrorResponse } from '../utils/responseFormatter.js';
 import { loadCommandCache } from '../utils/cache.js';
 import { createLogger } from '../utils/logger.js';
+import { parse as parseShellCommand } from 'shell-quote';
 
 export async function startMcpServer(baseCommand: string, cacheFile?: string | null) {
   const logger = createLogger({ prefix: 'mcp-server' });
@@ -78,7 +79,8 @@ export async function startMcpServer(baseCommand: string, cacheFile?: string | n
     },
     async ({ command }: { command: string }) => {
       try {
-        const cmdArgs = command.split(' ').filter(Boolean);
+        const parsed = parseShellCommand(command);
+        const cmdArgs = parsed.filter((arg): arg is string => typeof arg === 'string');
         const result = await executeCommand(baseCommand, '', { _raw: cmdArgs });
         return formatCommandResponse(result);
       } catch (error) {
