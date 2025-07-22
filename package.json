@@ -49,7 +49,7 @@
     "wrapper"
   ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.13.3",
     "@types/node": "^24.0.10",

@@ -1,8 +1,8 @@
 # any-cli-mcp-server
 
 [![npm version](https://badge.fury.io/js/any-cli-mcp-server.svg)](https://badge.fury.io/js/any-cli-mcp-server)
-[![Node.js CI](https://github.com/eirikb/any-cli-mcp-server/workflows/Node.js%20CI/badge.svg)](https://github.com/eirikb/any-cli-mcp-server/actions)
-[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
+[![Release](https://github.com/eirikb/any-cli-mcp-server/actions/workflows/release.yml/badge.svg)](https://github.com/eirikb/any-cli-mcp-server/actions/workflows/release.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-18+-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
 
