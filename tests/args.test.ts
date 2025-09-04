@@ -84,6 +84,22 @@ describe('parseArgs', () => {
       expect(result.cacheFile).toBe(null);
     });
 
+    it('should handle multiple arguments as a single command', () => {
+      const result = parseArgs(['sh', 'gg.cmd', 'gh']);
+
+      expect(result.cacheBuild).toBe(false);
+      expect(result.command).toBe('sh gg.cmd gh');
+      expect(result.cacheFile).toBe(null);
+    });
+
+    it('should handle multiple arguments with cache-file', () => {
+      const result = parseArgs(['sh', 'gg.cmd', 'gh', '--cache-file', 'custom.json']);
+
+      expect(result.cacheBuild).toBe(false);
+      expect(result.command).toBe('sh gg.cmd gh');
+      expect(result.cacheFile).toBe('custom.json');
+    });
+
     it('should handle command with cache-file', () => {
       const result = parseArgs(['git', '--cache-file', 'custom.json']);
 
