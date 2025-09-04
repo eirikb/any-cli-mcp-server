@@ -15,6 +15,11 @@ export function runProcess(
   return new Promise(resolve => {
     const { timeout = 10000, env = process.env } = options;
 
+    const commandParts = command.split(' ');
+    const actualCommand = commandParts[0];
+    const baseArgs = commandParts.slice(1);
+    const fullArgs = [...baseArgs, ...args];
+
     const timeoutHandle = setTimeout(() => {
       resolve({
         stdout: '',
@@ -26,7 +31,7 @@ export function runProcess(
     let stdout = '';
     let stderr = '';
 
-    const proc = spawn(command, args, {
+    const proc = spawn(actualCommand, fullArgs, {
       stdio: ['ignore', 'pipe', 'pipe'],
       env: { ...env, LANG: 'C' },
     });

@@ -15,7 +15,18 @@ export function parseArgs(args: string[]): ParsedArgs {
 
   if (cacheBuildIndex === -1 && args.length > 0 && !args[0].startsWith('-')) {
     const cacheFile = cacheFileIndex !== -1 ? args[cacheFileIndex + 1] : null;
-    return { command: args[0], cacheBuild: false, cacheFile };
+
+    const commandArgs: string[] = [];
+    for (let i = 0; i < args.length; i++) {
+      if (args[i] === '--cache-file') {
+        i++;
+      } else if (!args[i].startsWith('-')) {
+        commandArgs.push(args[i]);
+      }
+    }
+
+    const command = commandArgs.join(' ') || undefined;
+    return { command, cacheBuild: false, cacheFile };
   }
 
   if (cacheBuildIndex === -1) {
