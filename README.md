@@ -12,6 +12,10 @@ Uses the `--help` to build MCP tools.
 
 Works with any CLI tool that has `--help` output.
 
+## Hosted deployment
+
+A hosted deployment is available on [Fronteir AI](https://fronteir.ai/mcp/eirikb-any-cli-mcp-server).
+
 ## Quick Start
 
 ```bash
